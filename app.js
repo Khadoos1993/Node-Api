@@ -12,6 +12,7 @@ if (process.env.NODE_ENV === "test") {
   connectionString =
     "mongodb+srv://admin:admin@cluster0-smkop.azure.mongodb.net/library_test?retryWrites=true&w=majority";
 }
+
 console.log(connectionString);
 mongoose
   .connect(connectionString, {
@@ -33,7 +34,7 @@ app.get("/", (req, res) => {
   res.send("Welcome to my Nodemon API!!");
 });
 
-app.listen(port, () => {
+app.server = app.listen(port, () => {
   console.log(`server listening on port ${port}`);
 });
 
